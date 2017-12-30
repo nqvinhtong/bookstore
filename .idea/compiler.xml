@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bookstore-app" />
+        <module name="bookstore-ejb" />
+        <module name="bookstore-jpa" />
+        <module name="bookstore-rest" />
+        <module name="bookstore-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bookstore" target="1.5" />
+      <module name="bookstore-app" target="1.5" />
+      <module name="bookstore-ejb" target="1.7" />
+      <module name="bookstore-jpa" target="1.7" />
+      <module name="bookstore-rest" target="1.7" />
+      <module name="bookstore-web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<artifactId>bookstore</artifactId>
+		<groupId>org.books</groupId>
+		<version>1.0-SNAPSHOT</version>
+	</parent>
+
+	<groupId>org.books</groupId>
+	<artifactId>bookstore-app</artifactId>
+	<packaging>ear</packaging>
+	<name>bookstore-app</name>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.books</groupId>
+			<artifactId>bookstore-web</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>org.books</groupId>
+			<artifactId>bookstore-rest</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>org.books</groupId>
+			<artifactId>bookstore-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+		<dependency>
+			<groupId>org.books</groupId>
+			<artifactId>bookstore-jpa</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.10</version>
+				<configuration>
+					<version>7</version>
+					<applicationName>bookstore-app</applicationName>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>org.books</groupId>
+							<artifactId>bookstore-web</artifactId>
+							<bundleFileName>bookstore-web.war</bundleFileName>
+							<contextRoot>/books</contextRoot>
+						</webModule>
+						<webModule>
+							<groupId>org.books</groupId>
+							<artifactId>bookstore-rest</artifactId>
+							<bundleFileName>bookstore-rest.war</bundleFileName>
+							<contextRoot>/bookstore</contextRoot>
+						</webModule>
+						<ejbModule>
+							<groupId>org.books</groupId>
+							<artifactId>bookstore-ejb</artifactId>
+							<bundleFileName>bookstore-ejb.jar</bundleFileName>
+						</ejbModule>
+						<ejbModule>
+							<groupId>org.books</groupId>
+							<artifactId>bookstore-jpa</artifactId>
+							<bundleFileName>bookstore-jpa.jar</bundleFileName>
+						</ejbModule>
+					</modules>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
